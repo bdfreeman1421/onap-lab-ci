@@ -100,7 +100,7 @@
     name: dublin
     jobs:
      - '{env}-release-{frequency}'
-    integration-branch: 'dublin'
+    integration-branch: 'master'
     oom-branch: 'dublin'
     env:
      - 'windriver-dublin-sb04':
