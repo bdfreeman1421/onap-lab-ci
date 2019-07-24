@@ -97,6 +97,20 @@
          disabled_var: false
 
 - project:
+    name: dublin
+    jobs:
+     - '{env}-release-{frequency}'
+    integration-branch: 'dublin'
+    oom-branch: 'dublin'
+    env:
+     - 'windriver':
+         lab-name: 'windriver'
+         tenant-name: 'Integration-SB-04'
+         stack-name: 'dublin'
+         frequency: 'manual'
+         disabled_var: false
+
+- project:
     name: stability
     jobs:
      - '{env}-stability72hr'
@@ -108,3 +122,4 @@
          tenant-name: 'Integration-Longevity'
          stack-name: 'long'
          disabled_var: false
+
