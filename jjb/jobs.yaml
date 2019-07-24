@@ -99,7 +99,7 @@
 - project:
     name: dublin
     jobs:
-     - '{env}-dublin-{frequency}'
+     - '{env}-release-{frequency}'
     integration-branch: 'dublin'
     oom-branch: 'dublin'
     env:
