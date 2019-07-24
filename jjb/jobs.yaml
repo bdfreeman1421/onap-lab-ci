@@ -103,7 +103,7 @@
     integration-branch: 'dublin'
     oom-branch: 'dublin'
     env:
-     - 'windriver':
+     - 'windriver-dublin-sb04':
          lab-name: 'windriver'
          tenant-name: 'Integration-SB-04'
          stack-name: 'dublin'
