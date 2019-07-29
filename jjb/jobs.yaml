@@ -43,6 +43,24 @@
          stack-name: 'sb04'
          frequency: 'manual'
          disabled_var: false
+     - 'windriver-integration-design':
+         lab-name: 'windriver'
+         tenant-name: 'Integration-Design'
+         stack-name: 'design'
+         frequency: 'manual'
+         disabled_var: false
+     - 'windriver-integration-instantiation':
+         lab-name: 'windriver'
+         tenant-name: 'Integration-Instantiation'
+         stack-name: 'instantiation'
+         frequency: 'manual'
+         disabled_var: false
+     - 'windriver-integration-closedloop':
+         lab-name: 'windriver'
+         tenant-name: 'Integration-ClosedLoop'
+         stack-name: 'closedloop'
+         frequency: 'manual'
+         disabled_var: false
 
 - project:
     name: release
