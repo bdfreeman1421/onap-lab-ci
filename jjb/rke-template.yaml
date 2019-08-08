@@ -75,7 +75,7 @@
           rsync -e "ssh -i $SSH_KEY" -avtz ubuntu@$NFS_IP:/dockerdata-nfs/dev-robot/robot/logs/$LOG_DIR/ $WORKSPACE/archives/demo-init
 
           # ete ete
-          ssh -i $SSH_KEY ubuntu@$NFS_IP  'sudo su -l root -c "/root/oom/kubernetes/robot/ete-k8s.sh onap ete"'
+          ssh -i $SSH_KEY ubuntu@$NFS_IP  'sudo su -l root -c "/root/oom/kubernetes/robot/ete-k8s.sh onap ete execscript"'
           LOG_DIR=$(echo "kubectl exec -n onap $ROBOT_POD -- ls -1t /share/logs | grep ete_ete | head -1" | ssh -i $SSH_KEY ubuntu@$NFS_IP sudo su)
           echo "Browse Robot results at http://$K8S_IP:30209/logs/$LOG_DIR/"
           mkdir -p $WORKSPACE/archives/ete
