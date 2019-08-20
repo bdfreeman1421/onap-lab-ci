@@ -102,6 +102,14 @@
           mkdir -p $WORKSPACE/archives/instantiateDemoVFWCL
           rsync -e "ssh -i $SSH_KEY" -avtz ubuntu@$NFS_IP:/dockerdata-nfs/dev-robot/robot/logs/$LOG_DIR/ $WORKSPACE/archives/instantiateDemoVFWCL
 
+          # ete sdc-dcae-d
+          ssh -i $SSH_KEY ubuntu@$NFS_IP  'sudo su -l root -c "/root/oom/kubernetes/robot/ete-k8s.sh onap sdc-dcae-d"'
+          LOG_DIR=$(echo "kubectl exec -n onap $ROBOT_POD -- ls -1t /share/logs | grep sdc-dcae-d | head -1" | ssh -i $SSH_KEY ubuntu@$NFS_IP sudo su)
+          echo "Browse Robot results at http://$K8S_IP:30209/logs/$LOG_DIR/"
+          mkdir -p $WORKSPACE/archives/sdc-dcae-d
+          rsync -e "ssh -i $SSH_KEY" -avtz ubuntu@$NFS_IP:/dockerdata-nfs/dev-robot/robot/logs/$LOG_DIR/ $WORKSPACE/archives/sdc-dcae-d
+
+
           # demo vfwclosedloop
           PKG_STACK=$(openstack stack list -f value -c "Stack Name" --sort creation_time:desc | grep Vfmodule_Demo_vFWCLvPKG | head -1)
           PUBLIC_NET_ID=$(openstack stack show $STACK_NAME -f json | jq -r '.parameters.public_net_id')
